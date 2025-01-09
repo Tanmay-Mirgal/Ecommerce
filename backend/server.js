@@ -12,6 +12,7 @@ import fs from "fs/promises";
 import cartRoutes from "./routes/cart.route.js";
 import couponRoutes from "./routes/coupon.route.js";
 import paymentRoutes from "./routes/payment.route.js";
+import analayticsRoutes from "./routes/analaytics.route.js";
 dotenv.config();
 
 const app = express();
@@ -25,7 +26,7 @@ app.use(
     cors({
         origin: process.env.NODE_ENV === "production" ? process.env.CLIENT_URL : "http://localhost:5173",
         credentials: true,
-        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Add necessary methods
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
         allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
     })
 );
@@ -47,6 +48,7 @@ app.use('/api/products', productRoutes);
 app.use('/api/cart',cartRoutes);
 app.use('/api/coupon',couponRoutes);
 app.use('/api/payments',paymentRoutes);
+app.use('/api/analaytics',analayticsRoutes)
 
 setTimeout(async () => {
     try {
