@@ -11,6 +11,7 @@ import path from "path";
 import fs from "fs/promises";
 import cartRoutes from "./routes/cart.route.js";
 import couponRoutes from "./routes/coupon.route.js";
+import paymentRoutes from "./routes/payment.route.js";
 dotenv.config();
 
 const app = express();
@@ -45,6 +46,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/cart',cartRoutes);
 app.use('/api/coupon',couponRoutes);
+app.use('/api/payments',paymentRoutes);
 
 setTimeout(async () => {
     try {

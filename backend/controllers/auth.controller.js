@@ -1,7 +1,7 @@
 import User from "../models/user.model.js";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { redis } from '../lib/redis.js';
+import  redis  from '../lib/redis.js';
 const generateTokens = (userId) => {
     const accessToken = jwt.sign({ userId }, process.env.JWT_SECRET_KEY, { expiresIn: "15m" });
     const refreshToken = jwt.sign({ userId }, process.env.JWT_SECRET_KEY, { expiresIn: "7d" });
